@@ -90,6 +90,7 @@ void setup()
 }
 void loop() 
 {
+#if 0
   //variables that continually increase but at slower speeds;
   int imSpd = progcnt/68;
   int fanSpd = progcnt/15;
@@ -108,6 +109,7 @@ void loop()
   //set the table and lego to the color of the top right mirror led
   table.setHue(progcnt%255/10);
   lego.setHue(progcnt%255/10);
+#endif
   
 #if 0  
   //reset mirror to cyan
@@ -129,5 +131,6 @@ void loop()
   analogWrite(G2LED, lego.g);
   analogWrite(B2LED, lego.b);
   progcnt++;
+  Serial.printf("loop #%d\n", progcnt);
   delay(100);
 }
